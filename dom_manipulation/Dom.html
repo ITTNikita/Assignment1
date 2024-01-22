@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM MANIPULATION</title>
+    <link rel="stylesheet" href="dom.css">
+</head>
+<body>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <h1 class="heading">DOM MANIPULATION</h1>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Request</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Messages
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">Notificationx</a>
+          </li>
+        </ul>
+       
+      </div>
+    </nav>
+      <div class="container row m-auto">
+      <div class="card mx-2" style="width: 18rem;">
+        <img src="https://th.bing.com/th/id/OIP.88hQwxL9ILYl7PV_HXgWqgHaE8?w=283&h=189&c=7&r=0&o=5&pid=1.7" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Nikita Agarwal</h5>
+          <h6 id="isfriend">Stranger</h6>
+          <div class="btn-container">
+           
+            <button id="add"  onmouseover="mOver(this)" onmouseout="mOut(this)">Add friend</button>
+          </div>
+        </div>
+      </div>
+      <div class="card mx-2" style="width: 18rem;">
+        <img src="https://th.bing.com/th/id/OIP.CL6nUCFBO8nm9Zsf35gfzgHaEK?w=178&h=100&c=7&r=0&o=5&pid=1.7"
+        class="card-img-top" alt="...">  
+              <div class="card-body">
+          <h5 class="card-title">Mical</h5>
+          <h6 id="isfriend2">Stranger</h6>
+          <div class="btn-container">
+           <p id="mouseover"></p>
+            <button id="add2"  onmouseover="mOver2(this)" onmouseout="mOut2(this)">Add friend</button>
+          </div>
+        </div>
+      </div>
+      <div class="card mx-2" style="width: 18rem;">
+        <img src="data:image/jpeg;base64,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" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Nikita Agarwal</h5>
+          <h6 id="isfriend1">Stranger</h6>
+          <div class="btn-container">
+           
+            <button id="add1"  onmouseover="mOver1(this)" onmouseout="mOut1(this)" >Add friend</button>
+          </div>
+        </div>
+      </div>
+      
+      
+      </div>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> -->
+    <script src="question1js.js"></script>
+ 
+    
+</body>
+</html>
